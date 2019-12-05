@@ -1,0 +1,126 @@
+{
+	"info": {
+		"_postman_id": "0b435454-92fd-415f-9b25-7370238afe93",
+		"name": "ProfTitleTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET:LIST",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://49.234.112.12:8080/bysj1860//profTitle.ctl",
+					"protocol": "http",
+					"host": [
+						"49",
+						"234",
+						"112",
+						"12"
+					],
+					"port": "8080",
+					"path": [
+						"bysj1860",
+						"",
+						"profTitle.ctl"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST:ADD",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"description\": \"信息管理\",\r\n    \"id\": 1,\r\n    \"no\": \"0201\",\r\n    \"remarks\": \"不当网管\",\r\n    \"school\": {\r\n        \"description\": \"幼儿园\",\r\n        \"id\": 38,\r\n        \"no\": \"043\",\r\n        \"remarks\": \"厚德博学\"\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "http://49.234.112.12:8080/bysj1860//profTitle.ctl",
+					"protocol": "http",
+					"host": [
+						"49",
+						"234",
+						"112",
+						"12"
+					],
+					"port": "8080",
+					"path": [
+						"bysj1860",
+						"",
+						"profTitle.ctl"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET:LIST ID=1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://49.234.112.12:8080/bysj1860//profTitle.ctl?id=1",
+					"protocol": "http",
+					"host": [
+						"49",
+						"234",
+						"112",
+						"12"
+					],
+					"port": "8080",
+					"path": [
+						"bysj1860",
+						"",
+						"profTitle.ctl"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE:ID=2",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT:UPDATE",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://49.234.112.12:8080/bysj1860/profTitle.ctl",
+					"protocol": "http",
+					"host": [
+						"49",
+						"234",
+						"112",
+						"12"
+					],
+					"port": "8080",
+					"path": [
+						"bysj1860",
+						"profTitle.ctl"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

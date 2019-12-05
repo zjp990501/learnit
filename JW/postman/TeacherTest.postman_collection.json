@@ -1,0 +1,210 @@
+{
+	"info": {
+		"_postman_id": "653f3171-7412-4766-bea6-e00993289d17",
+		"name": "TeacherTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET:LIST",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e83f06a5-ae50-42d1-9b16-503e35e6eff9",
+						"exec": [
+							"tests[\"Body matches string 博士\"] = responseBody.has(\"博士\");",
+							"tests[\"Body matches string 教授\"] = responseBody.has(\"教授\");",
+							"tests[\"Body matches string 厉害\"] = responseBody.has(\"厉害\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://49.234.112.12:8080/bysj1860/teacher.ctl",
+					"protocol": "http",
+					"host": [
+						"49",
+						"234",
+						"112",
+						"12"
+					],
+					"port": "8080",
+					"path": [
+						"bysj1860",
+						"teacher.ctl"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST:ADD",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3e813b03-1912-4337-ba07-e9e20092088a",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"add response\"] = jsonData.message ===\"增加成功\";"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"degree\":{\"description\":\"博士\",\"id\":1,\"no\":\"01\",\"remarks\":\"厉害\"},\"department\":{\"description\":\"房地产管理\",\"id\":3,\"no\":\"0203\",\"remarks\":\"也不做包租公\",\"school\":{\"description\":\"幼儿园\",\"id\":38,\"no\":\"043\",\"remarks\":\"厚德博学\"}},\"id\":2,\"name\":\"一个老师\",\"title\":{\"description\":\"教授\",\"id\":1,\"no\":\"01\",\"remarks\":\"学\"}}"
+				},
+				"url": {
+					"raw": "http://49.234.112.12:8080/bysj1860/teacher.ctl",
+					"protocol": "http",
+					"host": [
+						"49",
+						"234",
+						"112",
+						"12"
+					],
+					"port": "8080",
+					"path": [
+						"bysj1860",
+						"teacher.ctl"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE:ID=2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b5500b21-1466-4b61-9a82-b1cfcbdfc29b",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"delete response\"] = jsonData.message ===\"删除成功\";"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://49.234.112.12:8080/bysj1860/teacher.ctl?id=2",
+					"protocol": "http",
+					"host": [
+						"49",
+						"234",
+						"112",
+						"12"
+					],
+					"port": "8080",
+					"path": [
+						"bysj1860",
+						"teacher.ctl"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET:LIST ID=1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f6f1993b-6659-418d-8565-86da9e1103ba",
+						"exec": [
+							"tests[\"Body matches string 教授\"] = responseBody.has(\"教授\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://49.234.112.12:8080/bysj1860/teacher.ctl?id=1",
+					"protocol": "http",
+					"host": [
+						"49",
+						"234",
+						"112",
+						"12"
+					],
+					"port": "8080",
+					"path": [
+						"bysj1860",
+						"teacher.ctl"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT:UPDATE",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "05b79b6e-be9f-4825-bc36-6de63fedf7eb",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"update response\"] = jsonData.message ===\"修改成功\";"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"degree\":{\"description\":\"博士\",\"id\":1,\"no\":\"01\",\"remarks\":\"super厉害\"},\"department\":{\"description\":\"房地产管理\",\"id\":3,\"no\":\"0203\",\"remarks\":\"也不做包租公\",\"school\":{\"description\":\"幼儿园\",\"id\":38,\"no\":\"043\",\"remarks\":\"厚德博学\"}},\"id\":1,\"name\":\"另外一个老师超进化\",\"title\":{\"description\":\"教授\",\"id\":1,\"no\":\"01\",\"remarks\":\"帅\"}}"
+				},
+				"url": {
+					"raw": "http://49.234.112.12:8080/bysj1860/teacher.ctl",
+					"protocol": "http",
+					"host": [
+						"49",
+						"234",
+						"112",
+						"12"
+					],
+					"port": "8080",
+					"path": [
+						"bysj1860",
+						"teacher.ctl"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

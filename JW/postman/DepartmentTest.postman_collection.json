@@ -1,0 +1,243 @@
+{
+	"info": {
+		"_postman_id": "415c0a9a-27da-48c6-b99c-00fc950102a0",
+		"name": "DepartmentTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET:LIST",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ef7b113c-3f10-4c03-9842-f02d183e9b9b",
+						"exec": [
+							"tests[\"Body matches string 信息管理\"] = responseBody.has(\"信息管理\");",
+							"tests[\"Body matches string 土地资源管理\"] = responseBody.has(\"土地资源管理\");",
+							"tests[\"Body matches string 房地产管理\"] = responseBody.has(\"房地产管理\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://49.234.112.12:8080/bysj1860/department.ctl",
+					"protocol": "http",
+					"host": [
+						"49",
+						"234",
+						"112",
+						"12"
+					],
+					"port": "8080",
+					"path": [
+						"bysj1860",
+						"department.ctl"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST:ADD",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "67f89abf-aa5e-4fc4-b5e0-54a7ca815131",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"add response\"] = jsonData.message ===\"增加成功\";"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"description\":\"信息管理\",\"id\":1,\"no\":\"0201\",\"remarks\":\"不当网管\",\"school\":{\"description\":\"宇宙大学\",\"id\":26,\"no\":\"04\",\"remarks\":\"筑基建业\"}}"
+				},
+				"url": {
+					"raw": "http://49.234.112.12:8080/bysj1860/department.ctl",
+					"protocol": "http",
+					"host": [
+						"49",
+						"234",
+						"112",
+						"12"
+					],
+					"port": "8080",
+					"path": [
+						"bysj1860",
+						"department.ctl"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET:LIST ID=4",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1f0fb13f-8325-4d85-8ed6-c79297e92c82",
+						"exec": [
+							"tests[\"Body matches string 信息管理\"] = responseBody.has(\"信息管理\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://49.234.112.12:8080/bysj1860/department.ctl?id=4",
+					"protocol": "http",
+					"host": [
+						"49",
+						"234",
+						"112",
+						"12"
+					],
+					"port": "8080",
+					"path": [
+						"bysj1860",
+						"department.ctl"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT:UPDATE",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a42e8b4c-0875-4ad9-9ce7-dd596f56b450",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"update response\"] = jsonData.message ===\"修改成功\";"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"description\":\"土地资源管理\",\"id\":2,\"no\":\"0202\",\"remarks\":\"做不da了地主\",\"school\":{\"description\":\"宇宙大学\",\"id\":26,\"no\":\"04\",\"remarks\":\"筑基建业\"}}"
+				},
+				"url": {
+					"raw": "http://49.234.112.12:8080/bysj1860/department.ctl",
+					"protocol": "http",
+					"host": [
+						"49",
+						"234",
+						"112",
+						"12"
+					],
+					"port": "8080",
+					"path": [
+						"bysj1860",
+						"department.ctl"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE:ID=2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8ded3ab9-ef27-41ab-8117-efded3481e98",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"delete response\"] = jsonData.message ===\"删除成功\";"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://49.234.112.12:8080/bysj1860/department.ctl?id=2",
+					"protocol": "http",
+					"host": [
+						"49",
+						"234",
+						"112",
+						"12"
+					],
+					"port": "8080",
+					"path": [
+						"bysj1860",
+						"department.ctl"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET:LISTBYSCHOOL",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://49.234.112.12:8080/bysj1860/department.ctl?paraType=school&id=26",
+					"protocol": "http",
+					"host": [
+						"49",
+						"234",
+						"112",
+						"12"
+					],
+					"port": "8080",
+					"path": [
+						"bysj1860",
+						"department.ctl"
+					],
+					"query": [
+						{
+							"key": "paraType",
+							"value": "school"
+						},
+						{
+							"key": "id",
+							"value": "26"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
