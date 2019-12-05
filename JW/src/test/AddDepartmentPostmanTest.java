@@ -14,7 +14,7 @@ public class AddDepartmentPostmanTest {
         Department departmentToAdd = JSON.parseObject(list, Department.class);
         try {
             DepartmentService.getInstance().update(departmentToAdd);
-            System.out.println("成功");
+            System.out.println("成功了");
         } catch (SQLException e) {
             e.printStackTrace();
         }
